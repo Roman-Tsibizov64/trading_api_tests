@@ -1,0 +1,40 @@
+name: API tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * *"
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Start the test stand in Docker Compose
+        run: docker compose up -d --wait
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run API tests
+        run: pytest --html=reports/report.html --self-contained-html
+
+      - name: Save the HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest_report
+          path: reports/
+
+      - name: Stop the test stand
+        if: always()
+        run: docker compose down

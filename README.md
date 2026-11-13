@@ -1,6 +1,6 @@
 # Trading API tests
 
-![API tests](https://github.com/YOUR_LOGIN/trading_api_tests/actions/workflows/api_tests.yml/badge.svg)
+![API tests](https://github.com/Roman-Tsibizov64/trading_api_tests/actions/workflows/api_tests.yml/badge.svg)
 
 API autotests in Python (pytest + requests) for a small trading service with accounts and orders.
 The test stand runs in Docker Compose; GitHub Actions starts it and runs all tests on every push and every morning.
