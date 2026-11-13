@@ -1,0 +1,36 @@
+{
+  "accounts": [
+    {
+      "id": 1,
+      "owner": "Test Trader 1",
+      "currency": "USD",
+      "balance": 10000,
+      "leverage": 100
+    },
+    {
+      "id": 2,
+      "owner": "Test Trader 2",
+      "currency": "EUR",
+      "balance": 2500.5,
+      "leverage": 50
+    },
+    {
+      "id": 3,
+      "owner": "Test Trader 3",
+      "currency": "GEL",
+      "balance": 0,
+      "leverage": 30
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "accountId": 1,
+      "symbol": "EURUSD",
+      "side": "buy",
+      "volume": 1,
+      "price": 1.085,
+      "status": "filled"
+    }
+  ]
+}
